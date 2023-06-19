@@ -1,0 +1,79 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwjpwix0w3rjp"]
+
+[ext_resource type="Theme" uid="uid://c8kq27nnhlci8" path="res://Theme/UI.theme" id="1_h7qlh"]
+[ext_resource type="Script" path="res://Game/Teams.gd" id="1_seq55"]
+[ext_resource type="PackedScene" uid="uid://cnpwcii6gyc4m" path="res://Other/SizeSettings.tscn" id="2_y71kk"]
+
+[node name="Teams" type="Control" node_paths=PackedStringArray("team1", "team2", "team3", "team4", "team5")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_h7qlh")
+script = ExtResource("1_seq55")
+team1 = NodePath("Center/Teams/Team1")
+team2 = NodePath("Center/Teams/Team2")
+team3 = NodePath("Center/Teams/Team3")
+team4 = NodePath("Center/Teams/Team4")
+team5 = NodePath("Center/Teams/Team5")
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Teams" type="VBoxContainer" parent="Center"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Center/Teams"]
+layout_mode = 2
+text = "Названия команд (до 22 символов)"
+horizontal_alignment = 1
+
+[node name="Team1" type="LineEdit" parent="Center/Teams"]
+layout_mode = 2
+placeholder_text = "Команда 1"
+max_length = 22
+
+[node name="Team2" type="LineEdit" parent="Center/Teams"]
+layout_mode = 2
+placeholder_text = "Команда 2"
+max_length = 22
+
+[node name="Team3" type="LineEdit" parent="Center/Teams"]
+layout_mode = 2
+placeholder_text = "Команда 3"
+max_length = 22
+
+[node name="Team4" type="LineEdit" parent="Center/Teams"]
+layout_mode = 2
+placeholder_text = "Команда 4"
+max_length = 22
+
+[node name="Team5" type="LineEdit" parent="Center/Teams"]
+layout_mode = 2
+placeholder_text = "Команда 5"
+max_length = 22
+
+[node name="Play" type="Button" parent="Center/Teams"]
+layout_mode = 2
+text = "Играть"
+
+[node name="Back" type="Button" parent="Center/Teams"]
+layout_mode = 2
+text = "Назад"
+flat = true
+
+[node name="SizeSettings" parent="." instance=ExtResource("2_y71kk")]
+layout_mode = 1
+offset_left = -108.0
+offset_bottom = 41.0
+
+[connection signal="button_down" from="Center/Teams/Play" to="." method="_on_PlayButton_down"]
+[connection signal="button_down" from="Center/Teams/Back" to="." method="_on_BackButton_down"]

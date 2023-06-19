@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cl5fjbyn7tfbk"]
+
+[ext_resource type="Script" path="res://Game/qu.gd" id="1_iwtnw"]
+
+[node name="Qu" type="Button"]
+custom_minimum_size = Vector2(111, 50)
+theme_override_font_sizes/font_size = 30
+text = "0"
+script = ExtResource("1_iwtnw")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]

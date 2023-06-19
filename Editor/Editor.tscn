@@ -1,0 +1,124 @@
+[gd_scene load_steps=5 format=3 uid="uid://buj34bafwovf8"]
+
+[ext_resource type="Theme" uid="uid://c8kq27nnhlci8" path="res://Theme/UI.theme" id="1_fsqvg"]
+[ext_resource type="Script" path="res://Editor/Editor.gd" id="1_svhgd"]
+[ext_resource type="PackedScene" uid="uid://blooojuqtii2r" path="res://Editor/theme.tscn" id="3_sd8xf"]
+[ext_resource type="PackedScene" uid="uid://cnpwcii6gyc4m" path="res://Other/SizeSettings.tscn" id="4_8inom"]
+
+[node name="Editor" type="Control" node_paths=PackedStringArray("dataList", "theme1", "theme2", "theme3", "theme4", "theme5")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fsqvg")
+script = ExtResource("1_svhgd")
+dataList = NodePath("CenterContainer/VBoxContainer/LoadData/dataList")
+theme1 = NodePath("CenterContainer/VBoxContainer/QuEditTab/THEME1")
+theme2 = NodePath("CenterContainer/VBoxContainer/QuEditTab/THEME2")
+theme3 = NodePath("CenterContainer/VBoxContainer/QuEditTab/THEME3")
+theme4 = NodePath("CenterContainer/VBoxContainer/QuEditTab/THEME4")
+theme5 = NodePath("CenterContainer/VBoxContainer/QuEditTab/THEME5")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme = ExtResource("1_fsqvg")
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Редактор"
+horizontal_alignment = 1
+
+[node name="LoadData" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ReloadButton" type="Button" parent="CenterContainer/VBoxContainer/LoadData"]
+layout_mode = 2
+text = "Обновить"
+
+[node name="dataList" type="OptionButton" parent="CenterContainer/VBoxContainer/LoadData"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+tooltip_text = "Данные"
+
+[node name="LoadButton" type="Button" parent="CenterContainer/VBoxContainer/LoadData"]
+layout_mode = 2
+text = "Загрузить"
+
+[node name="NewData" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/NewData"]
+layout_mode = 2
+
+[node name="NameEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/NewData"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+placeholder_text = "Название файла"
+
+[node name="NewButton" type="Button" parent="CenterContainer/VBoxContainer/NewData"]
+layout_mode = 2
+text = "Сохранить"
+
+[node name="QuEditTab" type="TabContainer" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 500)
+layout_mode = 2
+
+[node name="THEME1" parent="CenterContainer/VBoxContainer/QuEditTab" instance=ExtResource("3_sd8xf")]
+layout_mode = 2
+
+[node name="THEME2" parent="CenterContainer/VBoxContainer/QuEditTab" instance=ExtResource("3_sd8xf")]
+visible = false
+layout_mode = 2
+
+[node name="THEME3" parent="CenterContainer/VBoxContainer/QuEditTab" instance=ExtResource("3_sd8xf")]
+visible = false
+layout_mode = 2
+
+[node name="THEME4" parent="CenterContainer/VBoxContainer/QuEditTab" instance=ExtResource("3_sd8xf")]
+visible = false
+layout_mode = 2
+
+[node name="THEME5" parent="CenterContainer/VBoxContainer/QuEditTab" instance=ExtResource("3_sd8xf")]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+
+[node name="BackButton" type="Button" parent="MarginContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+text = "<"
+
+[node name="SizeSettings" parent="." instance=ExtResource("4_8inom")]
+layout_mode = 1
+offset_left = -108.0
+offset_bottom = 41.0
+
+[connection signal="button_down" from="CenterContainer/VBoxContainer/LoadData/ReloadButton" to="." method="reloadDataList"]
+[connection signal="button_down" from="CenterContainer/VBoxContainer/LoadData/LoadButton" to="." method="setData"]
+[connection signal="text_changed" from="CenterContainer/VBoxContainer/NewData/NameEdit" to="." method="NameEdit_changed"]
+[connection signal="button_down" from="CenterContainer/VBoxContainer/NewData/NewButton" to="." method="_on_NewButton_down"]
+[connection signal="button_down" from="MarginContainer/BackButton" to="." method="_on_BackButton_down"]

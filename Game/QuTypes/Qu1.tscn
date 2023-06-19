@@ -1,0 +1,186 @@
+[gd_scene load_steps=7 format=3 uid="uid://b1rkyhdg5srpp"]
+
+[ext_resource type="Script" path="res://Game/QuTypes/Qu1.gd" id="1_mytcw"]
+[ext_resource type="LabelSettings" uid="uid://j6rttk2fl2ii" path="res://Theme/Text/20size.tres" id="2_jfj7k"]
+[ext_resource type="Script" path="res://Game/QuTypes/Option1.gd" id="3_lbcel"]
+[ext_resource type="Texture2D" uid="uid://d0x7ibdjcxdqm" path="res://Theme/Images/Likes/like-button-icon.svg" id="3_o647r"]
+[ext_resource type="Texture2D" uid="uid://dnv2qfby13xer" path="res://Theme/Images/Likes/dislike-button-icon.svg" id="4_lh0nc"]
+[ext_resource type="PackedScene" uid="uid://cnpwcii6gyc4m" path="res://Other/SizeSettings.tscn" id="6_k8hu1"]
+
+[node name="Qu" type="Control" node_paths=PackedStringArray("teamName", "themeName", "quInt", "quText", "option1", "option2", "option3", "option4")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mytcw")
+teamName = NodePath("Center/Layout/Info/Team")
+themeName = NodePath("Center/Layout/Info/Theme")
+quInt = NodePath("Center/Layout/Info/Qu")
+quText = NodePath("Center/Layout/Qu/Text")
+option1 = NodePath("Center/Layout/GridContainer/Option1")
+option2 = NodePath("Center/Layout/GridContainer/Option2")
+option3 = NodePath("Center/Layout/GridContainer/Option3")
+option4 = NodePath("Center/Layout/GridContainer/Option4")
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Layout" type="VBoxContainer" parent="Center"]
+layout_mode = 2
+
+[node name="Info" type="HBoxContainer" parent="Center/Layout"]
+layout_mode = 2
+alignment = 1
+
+[node name="Team" type="Label" parent="Center/Layout/Info"]
+layout_mode = 2
+text = "Команда"
+label_settings = ExtResource("2_jfj7k")
+
+[node name="-" type="Label" parent="Center/Layout/Info"]
+layout_mode = 2
+text = "-"
+label_settings = ExtResource("2_jfj7k")
+
+[node name="Theme" type="Label" parent="Center/Layout/Info"]
+layout_mode = 2
+text = "Тема"
+label_settings = ExtResource("2_jfj7k")
+
+[node name="-2" type="Label" parent="Center/Layout/Info"]
+layout_mode = 2
+text = "-"
+label_settings = ExtResource("2_jfj7k")
+
+[node name="Qu" type="Label" parent="Center/Layout/Info"]
+layout_mode = 2
+text = "Вопрос"
+label_settings = ExtResource("2_jfj7k")
+
+[node name="Qu" type="Panel" parent="Center/Layout"]
+custom_minimum_size = Vector2(500, 150)
+layout_mode = 2
+
+[node name="Text" type="Label" parent="Center/Layout/Qu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Вопрос"
+label_settings = ExtResource("2_jfj7k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="Center/Layout"]
+layout_mode = 2
+columns = 2
+
+[node name="Option1" type="Button" parent="Center/Layout/GridContainer" node_paths=PackedStringArray("Good", "Bad")]
+custom_minimum_size = Vector2(250, 40)
+layout_mode = 2
+text = "Вариант 1"
+script = ExtResource("3_lbcel")
+Good = NodePath("../../../../Good")
+Bad = NodePath("../../../../Bad")
+
+[node name="Option2" type="Button" parent="Center/Layout/GridContainer" node_paths=PackedStringArray("Good", "Bad")]
+custom_minimum_size = Vector2(250, 40)
+layout_mode = 2
+text = "Вариант 1"
+script = ExtResource("3_lbcel")
+id = 1
+Good = NodePath("../../../../Good")
+Bad = NodePath("../../../../Bad")
+
+[node name="Option3" type="Button" parent="Center/Layout/GridContainer" node_paths=PackedStringArray("Good", "Bad")]
+custom_minimum_size = Vector2(250, 40)
+layout_mode = 2
+text = "Вариант 1"
+script = ExtResource("3_lbcel")
+id = 2
+Good = NodePath("../../../../Good")
+Bad = NodePath("../../../../Bad")
+
+[node name="Option4" type="Button" parent="Center/Layout/GridContainer" node_paths=PackedStringArray("Good", "Bad")]
+custom_minimum_size = Vector2(250, 40)
+layout_mode = 2
+text = "Вариант 1"
+script = ExtResource("3_lbcel")
+id = 3
+Good = NodePath("../../../../Good")
+Bad = NodePath("../../../../Bad")
+
+[node name="Good" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2, 0.658824, 0.403922, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Good"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -246.0
+offset_top = -246.0
+offset_right = 246.0
+offset_bottom = 246.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_o647r")
+
+[node name="Bad" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.956863, 0.262745, 0.211765, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Bad"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -246.0
+offset_top = -246.0
+offset_right = 246.0
+offset_bottom = 246.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_lh0nc")
+
+[node name="SizeSettings" parent="." instance=ExtResource("6_k8hu1")]
+layout_mode = 1
+offset_left = -108.0
+offset_bottom = 41.0
+
+[connection signal="button_down" from="Center/Layout/GridContainer/Option1" to="Center/Layout/GridContainer/Option1" method="_on_button_down"]
+[connection signal="button_down" from="Center/Layout/GridContainer/Option2" to="Center/Layout/GridContainer/Option2" method="_on_button_down"]
+[connection signal="button_down" from="Center/Layout/GridContainer/Option3" to="Center/Layout/GridContainer/Option3" method="_on_button_down"]
+[connection signal="button_down" from="Center/Layout/GridContainer/Option4" to="Center/Layout/GridContainer/Option4" method="_on_button_down"]

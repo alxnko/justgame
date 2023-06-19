@@ -1,0 +1,196 @@
+[gd_scene load_steps=7 format=3 uid="uid://ta5kwwinemq7"]
+
+[ext_resource type="Theme" uid="uid://c8kq27nnhlci8" path="res://Theme/UI.theme" id="1_cmybu"]
+[ext_resource type="LabelSettings" uid="uid://j6rttk2fl2ii" path="res://Theme/Text/20size.tres" id="1_f8qj1"]
+[ext_resource type="Script" path="res://Game/QuTypes/Qu0.gd" id="1_scsdf"]
+[ext_resource type="Texture2D" uid="uid://d0x7ibdjcxdqm" path="res://Theme/Images/Likes/like-button-icon.svg" id="3_8c2cn"]
+[ext_resource type="Texture2D" uid="uid://dnv2qfby13xer" path="res://Theme/Images/Likes/dislike-button-icon.svg" id="4_12vf8"]
+[ext_resource type="PackedScene" uid="uid://cnpwcii6gyc4m" path="res://Other/SizeSettings.tscn" id="5_hyk2f"]
+
+[node name="Qu" type="Control" node_paths=PackedStringArray("teamName", "themeName", "quInt", "quText", "ansText", "ansPanel", "showButton", "trueFalse", "Good", "Bad")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_cmybu")
+script = ExtResource("1_scsdf")
+teamName = NodePath("Center/Layout/Info/Team")
+themeName = NodePath("Center/Layout/Info/Theme")
+quInt = NodePath("Center/Layout/Info/Qu")
+quText = NodePath("Center/Layout/Qu/Text")
+ansText = NodePath("Center/Layout/Ans/Text")
+ansPanel = NodePath("Center/Layout/Ans")
+showButton = NodePath("MarginContainer/ShowButton")
+trueFalse = NodePath("MarginContainer/TrueFalse")
+Good = NodePath("Good")
+Bad = NodePath("Bad")
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Layout" type="VBoxContainer" parent="Center"]
+layout_mode = 2
+
+[node name="Info" type="HBoxContainer" parent="Center/Layout"]
+layout_mode = 2
+alignment = 1
+
+[node name="Team" type="Label" parent="Center/Layout/Info"]
+layout_mode = 2
+text = "Команда"
+label_settings = ExtResource("1_f8qj1")
+
+[node name="-" type="Label" parent="Center/Layout/Info"]
+layout_mode = 2
+text = "-"
+label_settings = ExtResource("1_f8qj1")
+
+[node name="Theme" type="Label" parent="Center/Layout/Info"]
+layout_mode = 2
+text = "Тема"
+label_settings = ExtResource("1_f8qj1")
+
+[node name="-2" type="Label" parent="Center/Layout/Info"]
+layout_mode = 2
+text = "-"
+label_settings = ExtResource("1_f8qj1")
+
+[node name="Qu" type="Label" parent="Center/Layout/Info"]
+layout_mode = 2
+text = "Вопрос"
+label_settings = ExtResource("1_f8qj1")
+
+[node name="Qu" type="Panel" parent="Center/Layout"]
+custom_minimum_size = Vector2(500, 150)
+layout_mode = 2
+
+[node name="Text" type="Label" parent="Center/Layout/Qu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Вопрос"
+label_settings = ExtResource("1_f8qj1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ans" type="Panel" parent="Center/Layout"]
+visible = false
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+
+[node name="Text" type="Label" parent="Center/Layout/Ans"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Вопрос"
+label_settings = ExtResource("1_f8qj1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -223.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="TrueFalse" type="HBoxContainer" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="True" type="Button" parent="MarginContainer/TrueFalse"]
+layout_mode = 2
+text = "Правильно"
+
+[node name="False" type="Button" parent="MarginContainer/TrueFalse"]
+layout_mode = 2
+text = "Неправильно"
+
+[node name="ShowButton" type="Button" parent="MarginContainer"]
+layout_mode = 2
+text = "Показать ответ"
+
+[node name="Good" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2, 0.658824, 0.403922, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Good"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -246.0
+offset_top = -246.0
+offset_right = 246.0
+offset_bottom = 246.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_8c2cn")
+
+[node name="Bad" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.956863, 0.262745, 0.211765, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Bad"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -246.0
+offset_top = -246.0
+offset_right = 246.0
+offset_bottom = 246.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_12vf8")
+
+[node name="SizeSettings" parent="." instance=ExtResource("5_hyk2f")]
+layout_mode = 1
+offset_left = -108.0
+offset_bottom = 41.0
+
+[connection signal="button_down" from="MarginContainer/TrueFalse/True" to="." method="_on_TrueButton_down"]
+[connection signal="button_down" from="MarginContainer/TrueFalse/False" to="." method="_on_FalseButton_down"]
+[connection signal="button_down" from="MarginContainer/ShowButton" to="." method="_on_ShowButton_down"]

@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://blooojuqtii2r"]
+
+[ext_resource type="Script" path="res://Editor/theme.gd" id="1_e8lkg"]
+[ext_resource type="PackedScene" uid="uid://boal81d4ifrmd" path="res://Editor/qu.tscn" id="1_u1crv"]
+
+[node name="THEME1" type="ScrollContainer" node_paths=PackedStringArray("tname", "qu1", "qu2", "qu3", "qu4", "qu5")]
+script = ExtResource("1_e8lkg")
+tname = NodePath("MarginContainer/VBoxContainer/Name")
+qu1 = NodePath("MarginContainer/VBoxContainer/Qu1")
+qu2 = NodePath("MarginContainer/VBoxContainer/Qu2")
+qu3 = NodePath("MarginContainer/VBoxContainer/Qu3")
+qu4 = NodePath("MarginContainer/VBoxContainer/Qu4")
+qu5 = NodePath("MarginContainer/VBoxContainer/Qu5")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Name" type="LineEdit" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+placeholder_text = "Название темы"
+alignment = 1
+
+[node name="Qu1" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_u1crv")]
+layout_mode = 2
+labelText = "Вопрос 1"
+
+[node name="Qu2" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_u1crv")]
+layout_mode = 2
+labelText = "Вопрос 2"
+
+[node name="Qu3" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_u1crv")]
+layout_mode = 2
+labelText = "Вопрос 3"
+
+[node name="Qu4" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_u1crv")]
+layout_mode = 2
+labelText = "Вопрос 4"
+
+[node name="Qu5" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_u1crv")]
+layout_mode = 2
+labelText = "Вопрос 5"

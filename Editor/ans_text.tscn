@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://cvb0opc4eu48l"]
+
+[node name="AnsText" type="LineEdit"]
+placeholder_text = "Текст Ответа"

@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://boal81d4ifrmd"]
+
+[ext_resource type="Script" path="res://Editor/qu.gd" id="1_0vbkj"]
+[ext_resource type="LabelSettings" uid="uid://j6rttk2fl2ii" path="res://Theme/Text/20size.tres" id="1_h2xhx"]
+[ext_resource type="PackedScene" uid="uid://cvb0opc4eu48l" path="res://Editor/ans_text.tscn" id="2_63e2y"]
+
+[node name="Qu" type="VBoxContainer" node_paths=PackedStringArray("label")]
+custom_minimum_size = Vector2(980, 0)
+alignment = 1
+script = ExtResource("1_0vbkj")
+label = NodePath("QuInfo/Label")
+
+[node name="QuInfo" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="QuInfo"]
+layout_mode = 2
+text = "Вопрос"
+label_settings = ExtResource("1_h2xhx")
+
+[node name="QuType" type="OptionButton" parent="QuInfo"]
+layout_mode = 2
+item_count = 2
+selected = 0
+popup/item_0/text = "Без вариантов"
+popup/item_0/id = 0
+popup/item_1/text = "4 варинта"
+popup/item_1/id = 1
+
+[node name="QuText" type="LineEdit" parent="."]
+layout_mode = 2
+placeholder_text = "Текст вопроса"
+
+[node name="AnsText" parent="." instance=ExtResource("2_63e2y")]
+layout_mode = 2
+
+[connection signal="item_selected" from="QuInfo/QuType" to="." method="_on_QuType_selected"]

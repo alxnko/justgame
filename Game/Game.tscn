@@ -1,0 +1,284 @@
+[gd_scene load_steps=6 format=3 uid="uid://bv638cim5kv4h"]
+
+[ext_resource type="Theme" uid="uid://c8kq27nnhlci8" path="res://Theme/UI.theme" id="1_30lwd"]
+[ext_resource type="Script" path="res://Game/Game.gd" id="1_m8265"]
+[ext_resource type="LabelSettings" uid="uid://j6rttk2fl2ii" path="res://Theme/Text/20size.tres" id="2_2cj1u"]
+[ext_resource type="PackedScene" uid="uid://cl5fjbyn7tfbk" path="res://Game/qu.tscn" id="3_gdo7g"]
+[ext_resource type="PackedScene" uid="uid://cnpwcii6gyc4m" path="res://Other/SizeSettings.tscn" id="4_iwsyp"]
+
+[node name="Game" type="Control" node_paths=PackedStringArray("teamans", "theme1", "theme2", "theme3", "theme4", "theme5", "result")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_30lwd")
+script = ExtResource("1_m8265")
+teamans = NodePath("Center/MainLayout/Game/Info/Team/Name")
+theme1 = NodePath("Center/MainLayout/Game/Questions/Theme1")
+theme2 = NodePath("Center/MainLayout/Game/Questions/Theme2")
+theme3 = NodePath("Center/MainLayout/Game/Questions/Theme3")
+theme4 = NodePath("Center/MainLayout/Game/Questions/Theme4")
+theme5 = NodePath("Center/MainLayout/Game/Questions/Theme5")
+result = NodePath("Center/MainLayout/Results")
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainLayout" type="HBoxContainer" parent="Center"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Game" type="VBoxContainer" parent="Center/MainLayout"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Info" type="HBoxContainer" parent="Center/MainLayout/Game"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Team" type="HBoxContainer" parent="Center/MainLayout/Game/Info"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Center/MainLayout/Game/Info/Team"]
+layout_mode = 2
+text = "Отвечает:"
+label_settings = ExtResource("2_2cj1u")
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="Center/MainLayout/Game/Info/Team"]
+layout_mode = 2
+text = "Команда 1"
+label_settings = ExtResource("2_2cj1u")
+vertical_alignment = 1
+
+[node name="Cont" type="HBoxContainer" parent="Center/MainLayout/Game/Info"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Center/MainLayout/Game/Info/Cont"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Выбор вопроса"
+label_settings = ExtResource("2_2cj1u")
+horizontal_alignment = 1
+
+[node name="End" type="Button" parent="Center/MainLayout/Game/Info"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Завершить"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Center/MainLayout/Game"]
+layout_mode = 2
+
+[node name="Questions" type="HBoxContainer" parent="Center/MainLayout/Game"]
+layout_mode = 2
+
+[node name="Theme1" type="VBoxContainer" parent="Center/MainLayout/Game/Questions"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Center/MainLayout/Game/Questions/Theme1"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Тема"
+horizontal_alignment = 1
+
+[node name="Qu1" parent="Center/MainLayout/Game/Questions/Theme1" instance=ExtResource("3_gdo7g")]
+layout_mode = 2
+qtheme = 1
+qu = 1
+
+[node name="Qu2" parent="Center/MainLayout/Game/Questions/Theme1" instance=ExtResource("3_gdo7g")]
+layout_mode = 2
+qtheme = 1
+qu = 2
+
+[node name="Qu3" parent="Center/MainLayout/Game/Questions/Theme1" instance=ExtResource("3_gdo7g")]
+layout_mode = 2
+qtheme = 1
+qu = 3
+
+[node name="Qu4" parent="Center/MainLayout/Game/Questions/Theme1" instance=ExtResource("3_gdo7g")]
+layout_mode = 2
+qtheme = 1
+qu = 4
+
+[node name="Qu5" parent="Center/MainLayout/Game/Questions/Theme1" instance=ExtResource("3_gdo7g")]
+layout_mode = 2
+qtheme = 1
+qu = 5
+
+[node name="Theme2" type="VBoxContainer" parent="Center/MainLayout/Game/Questions"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Center/MainLayout/Game/Questions/Theme2"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Тема"
+horizontal_alignment = 1
+
+[node name="Qu1" parent="Center/MainLayout/Game/Questions/Theme2" instance=ExtResource("3_gdo7g")]
+layout_mode = 2
+qtheme = 2
+qu = 1
+
+[node name="Qu2" parent="Center/MainLayout/Game/Questions/Theme2" instance=ExtResource("3_gdo7g")]
+layout_mode = 2
+qtheme = 2
+qu = 2
+
+[node name="Qu3" parent="Center/MainLayout/Game/Questions/Theme2" instance=ExtResource("3_gdo7g")]
+layout_mode = 2
+qtheme = 2
+qu = 3
+
+[node name="Qu4" parent="Center/MainLayout/Game/Questions/Theme2" instance=ExtResource("3_gdo7g")]
+layout_mode = 2
+qtheme = 2
+qu = 4
+
+[node name="Qu5" parent="Center/MainLayout/Game/Questions/Theme2" instance=ExtResource("3_gdo7g")]
+layout_mode = 2
+qtheme = 2
+qu = 5
+
+[node name="Theme3" type="VBoxContainer" parent="Center/MainLayout/Game/Questions"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Center/MainLayout/Game/Questions/Theme3"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Тема"
+horizontal_alignment = 1
+
+[node name="Qu1" parent="Center/MainLayout/Game/Questions/Theme3" instance=ExtResource("3_gdo7g")]
+layout_mode = 2
+qtheme = 3
+qu = 1
+
+[node name="Qu2" parent="Center/MainLayout/Game/Questions/Theme3" instance=ExtResource("3_gdo7g")]
+layout_mode = 2
+qtheme = 3
+qu = 2
+
+[node name="Qu3" parent="Center/MainLayout/Game/Questions/Theme3" instance=ExtResource("3_gdo7g")]
+layout_mode = 2
+qtheme = 3
+qu = 3
+
+[node name="Qu4" parent="Center/MainLayout/Game/Questions/Theme3" instance=ExtResource("3_gdo7g")]
+layout_mode = 2
+qtheme = 3
+qu = 4
+
+[node name="Qu5" parent="Center/MainLayout/Game/Questions/Theme3" instance=ExtResource("3_gdo7g")]
+layout_mode = 2
+qtheme = 3
+qu = 5
+
+[node name="Theme4" type="VBoxContainer" parent="Center/MainLayout/Game/Questions"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Center/MainLayout/Game/Questions/Theme4"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Тема"
+horizontal_alignment = 1
+
+[node name="Qu1" parent="Center/MainLayout/Game/Questions/Theme4" instance=ExtResource("3_gdo7g")]
+layout_mode = 2
+qtheme = 4
+qu = 1
+
+[node name="Qu2" parent="Center/MainLayout/Game/Questions/Theme4" instance=ExtResource("3_gdo7g")]
+layout_mode = 2
+qtheme = 4
+qu = 2
+
+[node name="Qu3" parent="Center/MainLayout/Game/Questions/Theme4" instance=ExtResource("3_gdo7g")]
+layout_mode = 2
+qtheme = 4
+qu = 3
+
+[node name="Qu4" parent="Center/MainLayout/Game/Questions/Theme4" instance=ExtResource("3_gdo7g")]
+layout_mode = 2
+qtheme = 4
+qu = 4
+
+[node name="Qu5" parent="Center/MainLayout/Game/Questions/Theme4" instance=ExtResource("3_gdo7g")]
+layout_mode = 2
+qtheme = 4
+qu = 5
+
+[node name="Theme5" type="VBoxContainer" parent="Center/MainLayout/Game/Questions"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Center/MainLayout/Game/Questions/Theme5"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Тема"
+horizontal_alignment = 1
+
+[node name="Qu1" parent="Center/MainLayout/Game/Questions/Theme5" instance=ExtResource("3_gdo7g")]
+layout_mode = 2
+qtheme = 5
+qu = 1
+
+[node name="Qu2" parent="Center/MainLayout/Game/Questions/Theme5" instance=ExtResource("3_gdo7g")]
+layout_mode = 2
+qtheme = 5
+qu = 2
+
+[node name="Qu3" parent="Center/MainLayout/Game/Questions/Theme5" instance=ExtResource("3_gdo7g")]
+layout_mode = 2
+qtheme = 5
+qu = 3
+
+[node name="Qu4" parent="Center/MainLayout/Game/Questions/Theme5" instance=ExtResource("3_gdo7g")]
+layout_mode = 2
+qtheme = 5
+qu = 4
+
+[node name="Qu5" parent="Center/MainLayout/Game/Questions/Theme5" instance=ExtResource("3_gdo7g")]
+layout_mode = 2
+qtheme = 5
+qu = 5
+
+[node name="Results" type="VBoxContainer" parent="Center/MainLayout"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Team1" type="VBoxContainer" parent="Center/MainLayout/Results"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Center/MainLayout/Results/Team1"]
+layout_mode = 2
+text = "Команда 1"
+
+[node name="Score" type="Label" parent="Center/MainLayout/Results/Team1"]
+layout_mode = 2
+text = "0"
+
+[node name="Team2" type="VBoxContainer" parent="Center/MainLayout/Results"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Center/MainLayout/Results/Team2"]
+layout_mode = 2
+text = "Команда 2"
+
+[node name="Score" type="Label" parent="Center/MainLayout/Results/Team2"]
+layout_mode = 2
+text = "0"
+
+[node name="SizeSettings" parent="." instance=ExtResource("4_iwsyp")]
+layout_mode = 1
+offset_left = -108.0
+offset_bottom = 41.0
+
+[connection signal="button_down" from="Center/MainLayout/Game/Info/End" to="." method="_on_EndButton_down"]

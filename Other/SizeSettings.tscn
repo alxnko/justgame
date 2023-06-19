@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnpwcii6gyc4m"]
+
+[ext_resource type="Texture2D" uid="uid://ckenn4rx443kd" path="res://Theme/Images/Size/326650_fullscreen_icon.svg" id="1_1fhxc"]
+[ext_resource type="Script" path="res://Other/SizeSettings.gd" id="1_cvqq2"]
+
+[node name="SizeSettings" type="MarginContainer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -10.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+script = ExtResource("1_cvqq2")
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MinusScale" type="Button" parent="HBox"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+text = "-"
+
+[node name="PlusScale" type="Button" parent="HBox"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+text = "+"
+
+[node name="FullScreen" type="Button" parent="HBox"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+icon = ExtResource("1_1fhxc")
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="button_down" from="HBox/MinusScale" to="." method="MinusSclae"]
+[connection signal="button_down" from="HBox/PlusScale" to="." method="PlusScale"]
+[connection signal="button_down" from="HBox/FullScreen" to="." method="FullScreen"]

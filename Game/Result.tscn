@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnsvkw73x5vrs"]
+
+[ext_resource type="Theme" uid="uid://c8kq27nnhlci8" path="res://Theme/UI.theme" id="1_igcjs"]
+[ext_resource type="Script" path="res://Game/Result.gd" id="1_sc7l5"]
+[ext_resource type="LabelSettings" uid="uid://j6rttk2fl2ii" path="res://Theme/Text/20size.tres" id="2_bbf5x"]
+[ext_resource type="PackedScene" uid="uid://cnpwcii6gyc4m" path="res://Other/SizeSettings.tscn" id="3_82l6i"]
+
+[node name="Result" type="Control" node_paths=PackedStringArray("result")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_igcjs")
+script = ExtResource("1_sc7l5")
+result = NodePath("Center/Teams/Results")
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Teams" type="VBoxContainer" parent="Center"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Center/Teams"]
+layout_mode = 2
+text = "Результаты:"
+label_settings = ExtResource("2_bbf5x")
+horizontal_alignment = 1
+
+[node name="Results" type="VBoxContainer" parent="Center/Teams"]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="Center/Teams"]
+layout_mode = 2
+text = "В главное меню"
+
+[node name="Exit" type="Button" parent="Center/Teams"]
+layout_mode = 2
+text = "Выход"
+flat = true
+
+[node name="SizeSettings" parent="." instance=ExtResource("3_82l6i")]
+layout_mode = 1
+offset_left = -108.0
+offset_bottom = 41.0
+
+[connection signal="button_down" from="Center/Teams/Back" to="." method="_on_BackButton_down"]
+[connection signal="button_down" from="Center/Teams/Exit" to="." method="_on_ExitButton_down"]

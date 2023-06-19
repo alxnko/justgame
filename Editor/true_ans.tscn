@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://o0s0e06kbog0"]
+
+[node name="TrueAns" type="HBoxContainer"]
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Правильный:"
+
+[node name="QuType" type="OptionButton" parent="."]
+layout_mode = 2
+item_count = 4
+selected = 0
+popup/item_0/text = "1"
+popup/item_0/id = 0
+popup/item_1/text = "2"
+popup/item_1/id = 1
+popup/item_2/text = "3"
+popup/item_2/id = 2
+popup/item_3/text = "4"
+popup/item_3/id = 3
