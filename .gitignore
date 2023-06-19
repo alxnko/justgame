@@ -21,4 +21,5 @@
 go.work
 
 #builds
-build
+/build/
+/data/
