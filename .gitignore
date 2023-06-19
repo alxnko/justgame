@@ -20,6 +20,11 @@
 # Go workspace file
 go.work
 
-#builds
+# Godot
+.godot/
+*.pck
+
+# Builds and data dirs
 build/
+testbuild/
 data/
