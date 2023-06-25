@@ -11,7 +11,8 @@ func _ready():
 func getSaves():
 	var out = DirAccess.get_files_at(dataDir)
 	for i in range(out.size()):
-		out[i] = out[i].split('.')[0]
+		if out[i].split('.')[1] == 'json':
+			out[i] = out[i].split('.')[0]
 	return out
 
 func hasSave(fname):
