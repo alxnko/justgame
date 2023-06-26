@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://blooojuqtii2r" path="res://Editor/theme.tscn" id="3_sd8xf"]
 [ext_resource type="PackedScene" uid="uid://cnpwcii6gyc4m" path="res://Other/SizeSettings.tscn" id="4_8inom"]
 
-[node name="Editor" type="Control" node_paths=PackedStringArray("dataList", "theme1", "theme2", "theme3", "theme4", "theme5")]
+[node name="Editor" type="Control" node_paths=PackedStringArray("dataList", "newName", "saveData", "theme1", "theme2", "theme3", "theme4", "theme5")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,6 +15,8 @@ grow_vertical = 2
 theme = ExtResource("1_fsqvg")
 script = ExtResource("1_svhgd")
 dataList = NodePath("CenterContainer/VBoxContainer/LoadData/dataList")
+newName = NodePath("CenterContainer/VBoxContainer/NewData/NameEdit")
+saveData = NodePath("CenterContainer/VBoxContainer/NewData/Label")
 theme1 = NodePath("CenterContainer/VBoxContainer/QuEditTab/THEME1")
 theme2 = NodePath("CenterContainer/VBoxContainer/QuEditTab/THEME2")
 theme3 = NodePath("CenterContainer/VBoxContainer/QuEditTab/THEME3")

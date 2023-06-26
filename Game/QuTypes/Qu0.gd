@@ -6,7 +6,7 @@ extends Control
 @export var quText: Label
 @export var ansText: Label
 
-@export var ansPanel: Panel
+@export var ansPanel: PanelContainer
 @export var showButton: Button
 @export var trueFalse: HBoxContainer
 

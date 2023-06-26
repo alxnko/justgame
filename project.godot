@@ -15,9 +15,7 @@ run/main_scene="res://Menu/Menu.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 run/max_fps=30
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
-boot_splash/show_image=false
-boot_splash/image="res://whitecat.png"
-boot_splash/fullsize=false
+boot_splash/image="res://bootsplash.png"
 config/icon="res://catuser.png"
 config/windows_native_icon="res://catuser.ico"
 
@@ -31,6 +29,10 @@ Game="*res://global/game.gd"
 
 window/size/viewport_width=1366
 window/size/viewport_height=768
+window/size/mode=2
+window/stretch/aspect="ignore"
+window/dpi/allow_hidpi=false
+window/vsync/vsync_mode=2
 
 [internationalization]
 

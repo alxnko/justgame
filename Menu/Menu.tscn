@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Menu/Settings.gd" id="3_xrx7v"]
 [ext_resource type="PackedScene" uid="uid://cnpwcii6gyc4m" path="res://Other/SizeSettings.tscn" id="4_nv038"]
 
-[node name="Menu" type="Control" node_paths=PackedStringArray("dataList", "teamCount", "scaleCount")]
+[node name="Menu" type="Control" node_paths=PackedStringArray("dataList", "teamCount", "scaleCount", "appName")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,6 +17,7 @@ script = ExtResource("2_45gxj")
 dataList = NodePath("CenterContainer/VBoxContainer/Data/dataList")
 teamCount = NodePath("CenterContainer/VBoxContainer/HBoxContainer2/TeamCount")
 scaleCount = NodePath("CenterContainer/VBoxContainer/HBoxContainer3/ScaleCount")
+appName = NodePath("CenterContainer/VBoxContainer/Label")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1

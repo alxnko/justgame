@@ -19,8 +19,8 @@ script = ExtResource("1_scsdf")
 teamName = NodePath("Center/Layout/Info/Team")
 themeName = NodePath("Center/Layout/Info/Theme")
 quInt = NodePath("Center/Layout/Info/Qu")
-quText = NodePath("Center/Layout/Qu/Text")
-ansText = NodePath("Center/Layout/Ans/Text")
+quText = NodePath("Center/Layout/Qu/MarginContainer/Text")
+ansText = NodePath("Center/Layout/Ans/MarginContainer/Text")
 ansPanel = NodePath("Center/Layout/Ans")
 showButton = NodePath("MarginContainer/ShowButton")
 trueFalse = NodePath("MarginContainer/TrueFalse")
@@ -73,34 +73,38 @@ layout_mode = 2
 text = "Вопрос"
 label_settings = ExtResource("1_f8qj1")
 
-[node name="Qu" type="Panel" parent="Center/Layout"]
+[node name="Qu" type="PanelContainer" parent="Center/Layout"]
 custom_minimum_size = Vector2(500, 150)
 layout_mode = 2
 
-[node name="Text" type="Label" parent="Center/Layout/Qu"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Вопрос"
+[node name="MarginContainer" type="MarginContainer" parent="Center/Layout/Qu"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Center/Layout/Qu/MarginContainer"]
+layout_mode = 2
+text = "Вопросffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
 label_settings = ExtResource("1_f8qj1")
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 
-[node name="Ans" type="Panel" parent="Center/Layout"]
+[node name="Ans" type="PanelContainer" parent="Center/Layout"]
 visible = false
-custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
 
-[node name="Text" type="Label" parent="Center/Layout/Ans"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MarginContainer" type="MarginContainer" parent="Center/Layout/Ans"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Center/Layout/Ans/MarginContainer"]
+layout_mode = 2
 text = "Вопрос"
 label_settings = ExtResource("1_f8qj1")
 horizontal_alignment = 1

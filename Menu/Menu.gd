@@ -4,10 +4,13 @@ extends Control
 @export var teamCount: Label
 @export var scaleCount: Label
 
+@export var appName: Label
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	setAutoScale()
 	reloadDataList()
+	appName.text = "justgame v"+str(Config.version)
 
 func _physics_process(delta):
 	updateScaleCount()

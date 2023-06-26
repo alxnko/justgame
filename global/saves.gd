@@ -9,10 +9,13 @@ func _ready():
 		DirAccess.make_dir_absolute(dataDir)
 
 func getSaves():
-	var out = DirAccess.get_files_at(dataDir)
-	for i in range(out.size()):
-		if out[i].split('.')[1] == 'json':
-			out[i] = out[i].split('.')[0]
+	var inp = DirAccess.get_files_at(dataDir)
+	var out = []
+	for i in range(inp.size()):
+		var file = inp[i].split('.')
+		if len(file) > 1:
+			if file[1] == 'json' && isValidSave(file[0]):
+				out.append(file[0])
 	return out
 
 func hasSave(fname):
@@ -36,3 +39,8 @@ func loadSettings():
 	if(FileAccess.file_exists(settings)):
 		return JSON.parse_string(FileAccess.get_file_as_string(settings))
 	else: return {}
+
+func isValidSave(fname):
+	var data = JSON.parse_string(FileAccess.get_file_as_string(dataDir+fname+".json"))
+	if data.size() == 6 and data[1].size() == 6: return true
+	else: return false
